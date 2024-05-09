@@ -1,0 +1,149 @@
+.sidebar {
+    position: fixed;
+    left: 20px;
+    top: 40px;
+    bottom: 40px;
+    background-color: #000000;
+    border-radius: 50px;
+    padding: 20px;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para separar los elementos */
+}
+
+
+.imagen_logo {
+    border-radius: 5px;
+    object-fit: contain;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    right: 10px; /* Ajusta la posición hacia la derecha */
+}
+
+.imagen_pefilVacio {
+    border-radius: 5px;
+    object-fit: contain;
+    position: relative;
+    bottom: 0; /* Abajo */
+    width: 40px;
+    height: 40px;
+    right: 10px; /* Ajusta la posición hacia la derecha */
+}
+
+  
+.button_comenzar {
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 50px;
+    font-size: 20px;
+    width: 60px;
+    height: 84px;
+    display: block; 
+    margin: 0 auto; /* El botón se centra horizontalmente */
+    position: fixed; /* El botón se posiciona en relación a su contenedor */
+    bottom: 20px; /* El botón se mueve 20 píxeles hacia abajo */
+    position: fixed; /* Posicionamiento fijo */
+    bottom: 40px; /* Distancia desde el borde inferior */
+    left: 50%; /* Alinea el botón en el centro horizontal */
+    transform: translateX(-50%);
+}
+
+/* Estilos para el enlace botón */
+.button_comenzar a {
+    display: inline-block;
+    transform: translateX(-50%);
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.7); /* Color de fondo blanco con opacidad del 70% */
+    color: #1A41A5; /* Color del texto */
+    padding: 20px 70px; /* Espacio interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    font-family: 'DM Sans', sans-serif;
+    border: 2px solid #1A41A5;    
+    border-radius: 50px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar */
+  }
+
+  /* Estilos para el enlace botón al pasar el cursor */
+  .button_comenzar a:hover {
+    background-color: #1A41A5; /* Cambia el color de fondo al pasar el cursor */
+  }
+
+h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 5rem;
+    position: relative;
+    top: 1px;
+    left: 800px;
+    right: 100px;
+    position: fixed;
+
+    
+}
+
+h2 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    top: 1px;
+    margin-top: 150px;
+    left: 895px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    position: fixed;
+
+
+}
+
+h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 250px;
+    left: 160px;
+    position: fixed;
+
+    
+}
+
+h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    position: relative;
+    margin-top: 290px;
+    left: 160px;
+    position: fixed;
+
+}
+h5 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+    margin-top: 330px;
+    left: 160px;
+    color: #1A41A5;
+    position: fixed;
+
+    
+}
+
+.tortugui-image {
+    width: 400px; /* Ancho de la imagen */
+    height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
+    position: fixed; /* Posicionamiento fijo para mantener la imagen en una posición específica en la ventana */
+    right: 130px; /* Posición desde el borde derecho de la ventana */
+    bottom: 100px
+    
+}
+
+body {
+    background-image: url('/Cosas/Fondo.png');
+    background-size: cover;
+    background-position: center;
+}
+
