@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', event => {
     document.getElementById("btn_dis").addEventListener("click", disconnect)
     document.getElementById("btn_move").addEventListener("click", move)
     document.getElementById("btn_stop").addEventListener("click", stop)
+    document.getElementById("btn_to_point").addEventListener("click", topoint)
     document.getElementById("btn_change_direction").addEventListener("click", changeDirection)
 
     data = {
@@ -83,6 +84,54 @@ document.addEventListener('DOMContentLoaded', event => {
         })
         topic.publish(message)
     }
+
+    function topoint() {
+        if (!data.connected) {
+            console.log("No estás conectado a ROS");
+            return;
+        }
+    
+        // Crear el tópico para enviar el punto objetivo
+        let goalTopic = new ROSLIB.Topic({
+            ros: data.ros,
+            name: '/goal_pose',
+            messageType: 'geometry_msgs/msg/PoseStamped'
+        });
+    
+        // Coordenadas de destino (puedes cambiar estos valores)
+        let destination = {
+            x: 1.0, // Coordenada x del objetivo
+            y: 1.0, // Coordenada y del objetivo
+            z: 0.0  // Coordenada z (casi siempre 0 para navegación 2D)
+        };
+    
+        // Crear el mensaje de objetivo
+        let goalMessage = new ROSLIB.Message({
+            header: {
+                seq: 0,
+                stamp: { secs: 0, nsecs: 0 },
+                frame_id: 'map' // El marco de referencia, a menudo 'map'
+            },
+            pose: {
+                position: {
+                    x: destination.x,
+                    y: destination.y,
+                    z: destination.z
+                },
+                orientation: {
+                    x: 0,
+                    y: 0,
+                    z: 0,
+                    w: 1 // Esto puede variar según tu configuración de orientación
+                }
+            }
+        });
+    
+        // Publicar el mensaje al tópico de objetivos
+        goalTopic.publish(goalMessage);
+    
+        console.log(`Robot moviéndose al punto (x: ${destination.x}, y: ${destination.y})`);
+    }    
 
     function stop() {
         let topic = new ROSLIB.Topic({
