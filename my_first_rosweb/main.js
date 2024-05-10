@@ -5,7 +5,9 @@ document.addEventListener('DOMContentLoaded', event => {
     document.getElementById("btn_dis").addEventListener("click", disconnect)
     document.getElementById("btn_move").addEventListener("click", move)
     document.getElementById("btn_stop").addEventListener("click", stop)
-    document.getElementById("btn_to_point").addEventListener("click", topoint)
+    document.getElementById("btn_to_point").addEventListener("click", () => {
+        call_point_service(2.0 , 1.0)
+    })
     document.getElementById("btn_change_direction").addEventListener("click", changeDirection)
 
     data = {
@@ -19,7 +21,10 @@ document.addEventListener('DOMContentLoaded', event => {
         position: {
             x: 0,
             y: 0
-        }
+        },
+        // service information 
+        service_busy: false, 
+        service_response: ''
     }
 
     function connect(){
@@ -57,6 +62,34 @@ document.addEventListener('DOMContentLoaded', event => {
         })
     }
 
+    function call_point_service(x, y) {
+        if (!ros.isConnected) {
+            console.error("No hay conexión con ROS");
+            return;
+        }
+
+        // Definir el servicio
+        let service = new ROSLIB.Service({
+            ros: ros,
+            name: '/point_server', // Asegúrate de usar el nombre correcto del servicio
+            serviceType: 'agro_mate_interface/srv/MyPointMsg' // Tipo de servicio correcto
+        });
+
+        // Crear la solicitud
+        let request = new ROSLIB.ServiceRequest({
+            x: x,
+            y: y
+        });
+
+        // Llamar al servicio
+        service.callService(request, (result) => {
+            console.log("Respuesta del servicio:", result.success);
+        }, (error) => {
+            console.error("Error al llamar al servicio:", error);
+        });
+    }
+    
+
     function disconnect(){
         data.ros.close()        
         data.connected = false
@@ -71,7 +104,7 @@ document.addEventListener('DOMContentLoaded', event => {
         })
 
         let linearVelocity = 0.1; // Default linear velocity
-        let angularVelocity = -0.2; // Default angular velocity
+        let angularVelocity = 0; // Default angular velocity
 
         if (data.direction === 'backward') {
             // If the direction is backward, reverse the linear velocity
@@ -83,54 +116,6 @@ document.addEventListener('DOMContentLoaded', event => {
             angular: {x: 0, y: 0, z: angularVelocity },
         })
         topic.publish(message)
-    }
-
-    function topoint() {
-        if (!data.connected) {
-            console.log("No estás conectado a ROS");
-            return;
-        }
-    
-        // Crear el tópico para enviar el punto objetivo
-        let goalTopic = new ROSLIB.Topic({
-            ros: data.ros,
-            name: '/goal_pose',
-            messageType: 'geometry_msgs/msg/PoseStamped'
-        });
-    
-        // Coordenadas de destino (puedes cambiar estos valores)
-        let destination = {
-            x: 1.0, // Coordenada x del objetivo
-            y: 1.0, // Coordenada y del objetivo
-            z: 0.0  // Coordenada z (casi siempre 0 para navegación 2D)
-        };
-    
-        // Crear el mensaje de objetivo
-        let goalMessage = new ROSLIB.Message({
-            header: {
-                seq: 0,
-                stamp: { secs: 0, nsecs: 0 },
-                frame_id: 'map' // El marco de referencia, a menudo 'map'
-            },
-            pose: {
-                position: {
-                    x: destination.x,
-                    y: destination.y,
-                    z: destination.z
-                },
-                orientation: {
-                    x: 0,
-                    y: 0,
-                    z: 0,
-                    w: 1 // Esto puede variar según tu configuración de orientación
-                }
-            }
-        });
-    
-        // Publicar el mensaje al tópico de objetivos
-        goalTopic.publish(goalMessage);
-    
-        console.log(`Robot moviéndose al punto (x: ${destination.x}, y: ${destination.y})`);
     }    
 
     function stop() {
