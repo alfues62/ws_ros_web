@@ -63,30 +63,29 @@ document.addEventListener('DOMContentLoaded', event => {
     }
 
     function call_point_service(x, y) {
-        if (!ros.isConnected) {
+        if (!data.connected) {
             console.error("No hay conexión con ROS");
             return;
         }
-
-        // Definir el servicio
+    
         let service = new ROSLIB.Service({
-            ros: ros,
-            name: '/point_server', // Asegúrate de usar el nombre correcto del servicio
-            serviceType: 'agro_mate_interface/srv/MyPointMsg' // Tipo de servicio correcto
-        });
-
-        // Crear la solicitud
+            ros: data.ros,
+            name: '/point_server',  // Verifica el nombre del servicio
+            serviceType: 'agro_mate_interface/srv/MyPointMsg'
+        })
+    
         let request = new ROSLIB.ServiceRequest({
             x: x,
-            y: y
-        });
-
-        // Llamar al servicio
+            y: y,
+        })
+    
         service.callService(request, (result) => {
-            console.log("Respuesta del servicio:", result.success);
+            data.service_busy = false
+            data.service_response = JSON.stringify(result)
         }, (error) => {
-            console.error("Error al llamar al servicio:", error);
-        });
+            data.service_busy = false
+            console.error(error)
+        })
     }
     
 
