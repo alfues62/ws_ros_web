@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', event => {
     document.getElementById("btn_move").addEventListener("click", move)
     document.getElementById("btn_stop").addEventListener("click", stop)
     document.getElementById("btn_to_point").addEventListener("click", () => {
-        call_point_service(2.0 , 1.0)
+        const x = parseFloat(document.getElementById("x_value").value);
+        const y = parseFloat(document.getElementById("y_value").value);
+        call_point_service(x, y);
     })
     document.getElementById("btn_change_direction").addEventListener("click", changeDirection)
 
