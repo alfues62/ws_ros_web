@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', event => {
     document.getElementById("btn_dis").addEventListener("click", disconnect)
     document.getElementById("btn_move").addEventListener("click", move)
     document.getElementById("btn_stop").addEventListener("click", stop)
+    document.getElementById("btn_to_point").addEventListener("click", () => {
+        const x = parseFloat(document.getElementById("x_value").value);
+        const y = parseFloat(document.getElementById("y_value").value);
+        call_point_service(x, y);
+    })
     document.getElementById("btn_change_direction").addEventListener("click", changeDirection)
 
     data = {
@@ -18,7 +23,10 @@ document.addEventListener('DOMContentLoaded', event => {
         position: {
             x: 0,
             y: 0
-        }
+        },
+        // service information 
+        service_busy: false, 
+        service_response: ''
     }
 
     function connect(){
@@ -56,6 +64,33 @@ document.addEventListener('DOMContentLoaded', event => {
         })
     }
 
+    function call_point_service(x, y) {
+        if (!data.connected) {
+            console.error("No hay conexión con ROS");
+            return;
+        }
+    
+        let service = new ROSLIB.Service({
+            ros: data.ros,
+            name: '/point_server',  // Verifica el nombre del servicio
+            serviceType: 'agro_mate_interface/srv/MyPointMsg'
+        })
+    
+        let request = new ROSLIB.ServiceRequest({
+            x: x,
+            y: y,
+        })
+    
+        service.callService(request, (result) => {
+            data.service_busy = false
+            data.service_response = JSON.stringify(result)
+        }, (error) => {
+            data.service_busy = false
+            console.error(error)
+        })
+    }
+    
+
     function disconnect(){
         data.ros.close()        
         data.connected = false
@@ -70,7 +105,7 @@ document.addEventListener('DOMContentLoaded', event => {
         })
 
         let linearVelocity = 0.1; // Default linear velocity
-        let angularVelocity = -0.2; // Default angular velocity
+        let angularVelocity = 0; // Default angular velocity
 
         if (data.direction === 'backward') {
             // If the direction is backward, reverse the linear velocity
@@ -82,7 +117,7 @@ document.addEventListener('DOMContentLoaded', event => {
             angular: {x: 0, y: 0, z: angularVelocity },
         })
         topic.publish(message)
-    }
+    }    
 
     function stop() {
         let topic = new ROSLIB.Topic({

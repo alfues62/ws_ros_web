@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi landing page</title>
+  <link rel="stylesheet" href="InicioSesion.css">
+  <style>
+    /* Estilos adicionales para hacer la imagen de fondo responsiva */
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('Cosas/Fondo3.png');
+      background-size: cover;
+      background-repeat: repeat;
+    }
+
+    .left-half {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background-color: rgba(26, 65, 165, 1); /* Cambia el color de fondo a azul */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      text-align: center;
+      color: white; /* Color del texto */
+    }
+
+    .login-title {
+      font-family: 'DM Sans', sans-serif;
+      margin-bottom: 60px;
+      margin-top: 10px;
+      font-size: 60px;
+    }
+
+    .input-field {
+    width: 300px;
+    height: 40px;
+    margin-bottom: 80px; /* Aumentamos el espacio entre las cajas de input */
+    padding: 10px; /* Reducimos el padding para que el campo no se vea tan alto */
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 10px; /* Bordes redondeados */
+    box-sizing: border-box; /* Para incluir el padding en el ancho */
+}
+
+    label {
+      font-family: 'DM Sans', sans-serif;
+      display: block;
+      text-align: left;
+    }
+
+    .label-usuario {
+        margin-bottom: 10px; /* Agrega un margen inferior al texto "Usuario" */
+        font-size: 30px;
+        display: block; /* Para que el texto ocupe toda la anchura */
+    }
+
+    .input-field-usuario {
+        margin-top: 10px; /* Agrega un margen superior a la caja de input */
+    }
+
+    .label-contraseña {
+        margin-bottom: 10px; /* Agrega un margen inferior al texto "Contraseña" */
+        font-size: 30px;
+        display: block; /* Para que el texto ocupe toda la anchura */
+    }
+
+    .input-field-contraseña {
+        margin-top: 10px; /* Agrega un margen superior a la caja de input de contraseña */
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="left-half">
+  <div class="login-container">
+    <h2 class="login-title">Iniciar Sesión</h2>
+    <label for="usuario" class="label-usuario">Usuario</label>
+    <input type="text" id="usuario" name="usuario" class="input-field" placeholder="Ingresa tu usuario">    
+    <label for="contraseña" class="label-contraseña">Contraseña</label>
+<input type="password" id="contraseña" name="contraseña" class="input-field" placeholder="Ingresa tu contraseña">
+  </div>
+</div>
+
+<aside class="sidebar">
+  <img src="Cosas/Logo.png" alt="Logo" class="imagen_logo">
+  <img src="Cosas/perfilVacio.png" alt="Perfil Vacío" class="imagen_perfil_vacio">
+</aside>
+
+<div class="header">
+  <div class="title-container">
+    <h1>AGRO <br> MATE</h1>
+  </div>
+</div>
+
+<div class="button_comenzar">
+  <a href="/my_first_rosweb/index.html">COMENZAR</a>
+</div>
+
+<div class="main-content">
+  <img src="Cosas/tortugui.png" alt="Tortugui" class="tortugui-image">
+</div>
+
+</body>
+</html>
