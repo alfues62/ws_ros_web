@@ -1,36 +1,184 @@
-.form-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 50px auto;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-  }
-  
-  .form-input {
-    width: 90%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .form-button {
-    width: 95%;
-    padding: 10px;
-    margin: 20px 0;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .form-button:hover {
-    background-color: #0056b3;
-  }
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/Cosas/Fondo3.png');
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+.left-half {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(26, 65, 165, 1); /* Cambia el color de fondo a azul */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  text-align: center;
+  color: white; /* Color del texto */
+}
+
+.login-title {
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 60px;
+  margin-top: 10px;
+  font-size: 60px;
+}
+
+.input-field {
+width: 300px;
+height: 40px;
+margin-bottom: 80px; /* Aumentamos el espacio entre las cajas de input */
+padding: 10px; /* Reducimos el padding para que el campo no se vea tan alto */
+border: 1px solid #ccc; /* Borde del campo de entrada */
+border-radius: 10px; /* Bordes redondeados */
+box-sizing: border-box; /* Para incluir el padding en el ancho */
+}
+
+label {
+  font-family: 'DM Sans', sans-serif;
+  display: block;
+  text-align: left;
+}
+
+.label-usuario {
+    margin-bottom: 10px; /* Agrega un margen inferior al texto "Usuario" */
+    font-size: 30px;
+    display: block; /* Para que el texto ocupe toda la anchura */
+}
+
+.input-field-usuario {
+    margin-top: 10px; /* Agrega un margen superior a la caja de input */
+}
+
+.label-contraseña {
+    margin-bottom: 10px; /* Agrega un margen inferior al texto "Contraseña" */
+    font-size: 30px;
+    display: block; /* Para que el texto ocupe toda la anchura */
+}
+
+.input-field-contraseña {
+    margin-top: 10px; /* Agrega un margen superior a la caja de input de contraseña */
+}
+
+.sidebar {
+  position: fixed;
+  left: 20px;
+  top: 40px;
+  bottom: 40px;
+  background-color: #000000;
+  border-radius: 50px;
+  padding: 20px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Para separar los elementos */
+}
+
+.imagen_logo {
+  border-radius: 5px;
+  object-fit: contain;
+  position: relative;
+  width: 40px;
+  height: 50px;
+  right: 10px; /* Ajusta la posición hacia la derecha */
+}
+
+.imagen_perfilVacio {
+  border-radius: 5px;
+  object-fit: contain;
+  position: relative;
+  bottom: 0; /* Abajo */
+  width: 40px;
+  height: 40px;
+  right: 10px; /* Ajusta la posición hacia la derecha */
+}
+
+.button_comenzar {
+  text-align: center; /* Lo cambiamos a la izquierda */
+  margin-top: 20px;
+  border-radius: 50px;
+  font-size: 20px;
+  width: 200px; /* Ancho del botón */
+  height: 84px;
+  display: block; 
+  margin-left: 240px; /* Alineamos el botón a la izquierda */
+  position: fixed; /* El botón se posiciona en relación a su contenedor */
+  bottom: 40px; /* Distancia desde el borde inferior */
+}
+
+
+/* Estilos para el enlace botón */
+.button_comenzar a {
+  display: inline-block;
+  background-color: white; /* Color de fondo blanco con opacidad del 70% */
+  color: #1A41A5; /* Color del texto */
+  padding: 20px 70px; /* Espacio interno */
+  text-align: center; /* Alineación del texto */
+  text-decoration: none; /* Quita el subrayado del enlace */
+  font-family: 'DM Sans', sans-serif;
+  border: 2px solid #1A41A5;    
+  border-radius: 50px; /* Borde redondeado */
+  cursor: pointer; /* Cursor al pasar */
+}
+
+
+.title-container {
+  text-align: right;
+  margin-top: 20px;
+  position: relative;
+  top: 20px;
+  margin-right: 70px;
+}
+
+h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+  font-size: 6rem;
+  margin-right: 100px;
+  margin-top: 10px;
+}
+
+.tortugui-image {
+  width: 400px; /* Ancho de la imagen */
+  height: auto; /* La altura se ajustará automáticamente para mantener la proporción */
+  position: fixed; /* Posicionamiento fijo para mantener la imagen en una posición específica en la ventana */
+  right: 130px; /* Posición desde el borde derecho de la ventana */
+  bottom: 20px; /* Ajuste la distancia desde la parte inferior de la ventana */
+}
+
+body {
+  background-image: url('/Cosas/Fondo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-container {
+  text-align: center;
+}
+
+.login-title {
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 20px;
+  color: white; /* Cambiamos el color del título */
+}
+
+.input-field {
+  width: 300px;
+  height: 40px;
+  margin-bottom: 30px; /* Aumentamos el espacio entre las cajas de input */
+  padding: 10px; /* Reducimos el padding para que el campo no se vea tan alto */
+  border: 1px solid #ccc; /* Borde del campo de entrada */
+  border-radius: 10px; /* Bordes redondeados */
+  box-sizing: border-box; /* Para incluir el padding en el ancho */
+}
+
+label {
+  display: block;
+  text-align: left;
+}
