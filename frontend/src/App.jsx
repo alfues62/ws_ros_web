@@ -1,6 +1,7 @@
 import react from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Login from "./pages/Login"
+import Landing from "./pages/Landing";
 import Register from "./pages/Register"
 import Home from "./pages/Home"
 import NotFound from "./pages/NotFound"
@@ -20,8 +21,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+      <Route path="/" element={<Landing />} />
         <Route
-          path="/"
+          path="/home"
           element={
             <ProtectedRoute>
               <Home />
