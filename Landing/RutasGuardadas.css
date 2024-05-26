@@ -1,11 +1,12 @@
 .sidebar {
     position: fixed;
     left: 20px;
-    top: 40px;
+    margin-top: 30px; /* Incrementa este valor para aumentar la separación desde la parte superior */
     bottom: 40px;
     background-color: #000000;
     border-radius: 50px;
     padding: 20px;
+    height: 85%;
     width: 20px;
     display: flex;
     flex-direction: column;

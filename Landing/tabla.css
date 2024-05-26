@@ -1,0 +1,116 @@
+#TopContainer{
+    width: 100%;
+    height: 100%;
+}
+#Tabla{
+    width: 334px;
+    height: 550px;
+    margin: 0 auto;
+    border-collapse: collapse;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 30px;
+}
+#Titulo{
+    text-align: center;
+    font-weight: bold;
+    font-family: 'DM Sans', sans-serif;
+}
+
+#ButtonContainer{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    height: 4rem;
+    
+}
+
+#ManualBtn{
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    font-family: 'DM Sans', sans-serif;
+    border-radius: 0px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 13.71px;
+    font-weight: bold;
+
+}
+
+#ManualBtn:hover {
+    background-color: #1A41A5;
+}
+
+#SeleccionarBtn{
+    width: 50%;
+    background-color: white;
+    font-family: 'DM Sans', sans-serif;
+    border-radius: 0px;
+    border: 1px solid rgb(0, 0, 0);
+    font-size: 13.71px;
+    font-weight: bold;
+
+}
+
+#MainDiv2{
+    display: flex;
+    flex-direction: column;
+    height: 330px;
+
+}
+
+
+#moveImage{
+    height: 70%;
+    width: 70%;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+#MainDiv3{
+    border-top: 1px solid black;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+#Subtitulo{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+#Subtitulo2{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+
+.grabar-azul{
+    color: #1A41A5;
+}
+
+.clasePuntos{
+    font-family: 'DM Sans', sans-serif;
+    font-weight: bold;
+    padding-left: 10px;
+    font-size: 13.71px;
+}
+
+#BotonGrabar{
+    background-image:url('Cosas/playButton.png');
+    height: 80%;
+    width: 20%;
+    background-size: contain;
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    border: none;
+    background-color: transparent; /* Asegura que el fondo sea transparente */
+    margin-top: 5%;
+
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<!-- This is the head element, which contains metadata about the document -->
+<head>
+    <!-- This sets the title of the page, which appears in the browser's title bar -->
+    <title>La tabla</title>
+    <!-- This links to an external stylesheet, which defines the styles for the page -->
+    <link rel="stylesheet" href="tabla.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="tabla.js"></script>
+</head>
+
+<!-- This is the body element, which contains the content of the page -->
+<body>
+    <main id="TopContainer">
+    <section id="Tabla">
+        <h1 id="Titulo">
+            GRABAR RUTA
+        </h1>
+        <div id="ButtonContainer">
+            <Button id="ManualBtn">
+                Manual
+            </Button>
+            <Button id="SeleccionarBtn">
+                Seleccionar puntos
+            </Button>
+        </div>
+        <div id="MainDiv" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 330px;">
+            <p id="Subtitulo">Seleccione los puntos en el campo por los que se quiere mover y dale a <span class="grabar-azul">grabar</span></p>
+            <p class="clasePuntos">Punto 1</p>
+            <p class="clasePuntos">Punto 2</p>
+            <p class="clasePuntos">Punto 3</p>
+        </div>
+        
+        <div id="MainDiv2">
+            <p id="Subtitulo2">Dale a <span class="grabar-azul">grabar</span> y muévase por el mapa para guardar la ruta deseada. </p>
+            <img src="Cosas/moveImage.png" id="moveImage">
+
+        </div>
+        
+        <div id="MainDiv3">
+            <Button id="BotonGrabar"></Button>
+        </div>
+    </section>
+</main>
+</body>
+</html>
