@@ -5,274 +5,73 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mi landing page</title>
   <link rel="stylesheet" href="Navegacion.css">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column; /* Ajusta el contenido en una columna */
-      min-height: 100vh; /* Asegura que el cuerpo tenga al menos el alto del viewport */
-      position: relative; /* Establece posición relativa para poder posicionar las barras de forma absoluta */
-    }
-    .top-bar, .bottom-bar {
-      background-color: white; /* Color de la barra */
-      width: 100%; /* Ancho total */
-      position: fixed; /* Posicionamiento fijo para que no se desplace con el contenido */
-      left: 0; /* Ajusta la posición a la izquierda */
-      z-index: 1; /* Asegura que las barras estén por encima del contenido */
-    }
-    .top-bar {
-      top: 0; /* Coloca la barra superior en la parte superior de la ventana */
-      height: 40px; /* Altura de la barra superior */
-    }
-    .bottom-bar {
-      bottom: 0; /* Coloca la barra inferior en la parte inferior de la ventana */
-      height: 90px; /* Altura de la barra inferior, mayor que la barra superior */
-    }
-    .background-container {
-      width: 60%; /* Ancho deseado de la imagen */
-      margin: 20px auto; /* Espacio alrededor de la imagen */
-      position: relative; /* Establece posición relativa */
-      z-index: 0; /* Asegura que la imagen de fondo esté detrás de las barras */
-    }
-    img.background-img {
-      width: 100%; /* Ancho de la imagen al 100% */
-      display: block; /* Asegura que la imagen sea un bloque */
-    }
-    .sidebar {
-      position: absolute; /* Ajuste de la posición de la barra lateral */
-      z-index: 2; /* Asegura que la barra lateral esté por encima de las barras */
-      top: 0; /* Coloca la barra lateral en la parte superior de la ventana */
-    }
-    .content {
-      position: relative; /* Ajuste de la posición del contenido */
-      z-index: 2; /* Asegura que el contenido esté por encima de las barras */
-    }
-
-    .button_comenzar {
-    text-align: center;
-    margin-top: 20px;
-    border-radius: 50px;
-    font-size: 20px;
-    width: 60px;
-    height: 84px;
-    display: block; 
-    margin: 0 auto; /* El botón se centra horizontalmente */
-    position: fixed; /* El botón se posiciona en relación a su contenedor */
-    bottom: 1px; /* El botón se mueve 60 píxeles hacia abajo */
-    left: 37%; /* Alinea el botón en el centro horizontal */
-    transform: translateX(-50%);
-}
-
-.button_grabar {
-    text-align: center;
-    margin-top: 20px;
-    border-radius: 50px;
-    font-size: 20px;
-    width: 60px;
-    height: 84px;
-    display: block; 
-    margin: 0 auto; /* El botón se centra horizontalmente */
-    position: fixed; /* El botón se posiciona en relación a su contenedor */
-    bottom: 1px; /* El botón se mueve 60 píxeles hacia abajo */
-    left: 60.2%; /* Alinea el botón en el centro horizontal */
-    transform: translateX(-50%);
-  }
-
-  /* Estilos para el cuadrado blanco en la parte derecha */
-  .right-square {
-    position: fixed;
-    top: 19px;
-    right: 0;
-    bottom: 63px;
-    width: calc(20% - 40px); /* Ajusta el ancho según el espacio disponible */
-    background-color: white;
-    border: 2px solid black; /* Añadimos borde negro */
-    border-radius: 20px;
-    z-index: 2; /* Asegura que esté en la capa superior */
-    margin: 20px;
-}
-
-/* Estilos para la sección de texto "GRABAR RUTA" */
-.grabar-text {
-  position: absolute;
-  top: 25px; /* Ajusta la separación superior */
-  right: 0;
-  width: 100%;
-  text-align: center;
-  z-index: 3; /* Asegura que esté por encima del cuadrado blanco */
-  font-family: "DM Sans", sans-serif; /* Cambia la tipografía */
-  margin-bottom: 15px; /* Ajusta la separación inferior */
-}
-
-.grabar-text hr {
-  bottom: 10px; /* Ajusta la separación inferior */
-  top: 50px; /* Ajusta la separación superior */
-  border: 1px solid black;
-  width: 100%; /* Ajusta la anchura */
-  margin: 0 auto;
-}
-
-.grabar-text span {
-  background-color: white;
-  padding: 0 15px; /* Ajusta el padding */
-  font-weight: bold;
-}
-
-/* Estilo para la barra vertical */
-.vertical-bar {
-  position: absolute;
-  top: 45px; /* Ajusta la posición vertical */
-  right: 130px;
-  width: 1px; /* Anchura de la barra */
-  height: calc(30% - 120px); /* Ajusta la altura de la barra */
-  background-color: black; /* Color de la barra */
-}
-
-.horizontal-bar {
-  position: absolute;
-  top: 111px; /* Ajusta la posición vertical */
-  left: 0;
-  width: 100%; /* Ajusta la anchura */
-  height: 1px; /* Ajusta la altura */
-  background-color: black; /* Color de la barra */
-}
-
-.horizontal-bar2 {
-  position: absolute;
-  top: 570px; /* Ajusta la posición vertical */
-  left: 0;
-  width: 100%; /* Ajusta la anchura */
-  height: 1px; /* Ajusta la altura */
-  background-color: black; /* Color de la barra */
-}
-
-/* Estilos para la imagen dentro del cuadrado blanco */
-.boton-detener-img {
-  position: absolute;
-  top: 95.5%; /* Centra verticalmente */
-  left: 50%; /* Centra horizontalmente */
-  transform: translate(-50%, -50%); /* Centra la imagen */
-  width: 80%; /* Ancho de la imagen */
-  height: auto; /* Altura automática para mantener la proporción */
-  max-width: 40px; /* Ancho máximo */
-  max-height: 40px; /* Altura máxima */
-}
-
-/* Estilos para los cuadrados blancos en la parte izquierda */
-.left-square {
-  position: absolute;
-  top: 19px;
-  left: 0;
-  bottom: 63px;
-  width: calc(20% - 40px); /* Ajusta el ancho según el espacio disponible */
-  background-color: white;
-  border: 2px solid black; /* Añadimos borde negro */
-  border-radius: 20px;
-  z-index: 2; /* Asegura que esté en la capa superior */
-  margin: 20px;
-}
-
-/* Estilos para el texto dentro de los cuadrados */
-.square-text {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-weight: bold;
-  padding: 0 10px;
-}
-
-.left-square .square-text {
-  left: -100%; /* Ajusta el texto a la izquierda */
-}
-
-.right-square .square-text {
-  right: -100%; /* Ajusta el texto a la derecha */
-}
-
-/* Estilos para el texto a la izquierda de la barra vertical */
-.left-text {
-  position: absolute;
-  top: 50%;
-  left: 10px; /* Ajusta el espacio a la izquierda */
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "DM Sans", sans-serif;
-}
-
-.caja-izquierda-text {
-  position: absolute;
-  top: 12.5%;
-  left: 10px; /* Ajusta el espacio a la izquierda */
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "DM Sans", sans-serif;
-}
-
-.caja-derecha-text {
-  position: absolute;
-  top: 12.5%;
-  left: 135px; /* Ajusta el espacio a la izquierda */
-  transform: translateY(-50%);
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "DM Sans", sans-serif;
-}
-
-.square-text.left-text span {
-  color: rgba(26, 65, 165, 1);
-}
-
-
-
-  </style>
+  <link rel="stylesheet" href="tabla.css">
+  <link rel="stylesheet" href="tablaNav.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="tabla.js"></script>
+  <script src="tablaNav.js"></script>
+  <script src="cambioTablas.js"></script>
 </head>
 <body>
-
-<div class="top-bar"></div> <!-- Barra blanca superior -->
-<div class="background-container">
-  <img src="Cosas/Fondo_Navegacion.png" alt="Fondo de navegación" class="background-img">
-</div>
-<!-- Tu contenido aquí -->
-<aside class="sidebar">
-  <img src="Cosas/Logo.png" alt="Logo" class="imagen_logo">
-  <img src="Cosas/estadistica.png" alt="Logo" class="estadistica_imagen">
-  <img src="Cosas/flechita.png" alt="Logo" class="flechita_imagen">
-  <img src="Cosas/perfilVacio.png" alt="Perfil Vacío" class="imagen_perfil_vacio">
-</aside>
-<div class="content">
-  <div class="button_comenzar">
-    <a href="/my_first_rosweb/index.html">COMENZAR</a>
+  <div class="top-bar"></div> <!-- Barra blanca superior -->
+  <div class="background-container">
+    <img src="Cosas/Fondo_Navegacion.png" alt="Fondo de navegación" class="background-img">
   </div>
-  <div class="button_grabar">
-    <a href="#">GRABAR</a>
+  <!-- Tu contenido aquí -->
+  <aside class="sidebar">
+    <img src="Cosas/Logo.png" alt="Logo" class="imagen_logo">
+    <img src="Cosas/estadistica.png" alt="Logo" class="estadistica_imagen">
+    <img src="Cosas/flechita.png" alt="Logo" class="flechita_imagen">
+    <img src="Cosas/perfilVacio.png" alt="Perfil Vacío" class="imagen_perfil_vacio">
+  </aside>
+  <div class="content">
+    <div id="button_comenzar" class="button_comenzar">
+      <a href="javascript:void(0);">NAVEGACION</a>
+    </div>
+    <div id="button_grabar" class="button_grabar">
+      <a href="javascript:void(0);">GRABAR</a>
+    </div>
   </div>
-</div>
-<div class="bottom-bar"></div> <!-- Barra blanca inferior -->
-
-
-<!-- Cuadrado blanco en la parte derecha -->
-<div class="right-square">
-  <div class="grabar-text">
-    <span>GRABAR RUTA</span>
-    <hr>
-  </div>
-  <!--<img src="Cosas/tabla1.png" alt="Tabla 1" class="tabla-imagen"> -->
-  <!-- Barra vertical -->
-  <div class="vertical-bar"></div>
-  <div class="horizontal-bar"></div>
-  <div class="horizontal-bar2"></div>
-   <!-- Texto a la izquierda de la barra vertical -->
-   <div class="square-text left-text">Seleccione los puntos<br>por los que se quiere<br><span>mover.</span></div>
-   <div class="square-text caja-izquierda-text"><a href="/Landing/NavegacionManual.html" class="square-link">Manual</a></div>
-   <div class="square-text caja-derecha-text"><a href="/Landing/Navegacion.html" class="square-link">Ruta</a></div>
-   <img src="Cosas/boton-detener.png" alt="boton-detener" class="boton-detener-img">
+  <div class="bottom-bar"></div> <!-- Barra blanca inferior -->
   
-</div>
-</div>
+  <section id="Tabla">
+    <div id="TituloContainer"> <!-- Nuevo contenedor para el título -->
+      <h1 id="Titulo">GRABAR RUTA</h1>
+    </div>
+    <div id="ButtonContainer">
+      <Button id="ManualBtn">Manual</Button>
+      <Button id="SeleccionarBtn">Seleccionar puntos</Button>
+    </div>
+    <div id="MainDiv" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 330px;">
+      <p id="Subtitulo">Seleccione los puntos en el campo por los que se quiere mover y dale a <span class="grabar-azul">grabar</span></p>
+      <p class="clasePuntos">Punto 1</p>
+      <p class="clasePuntos">Punto 2</p>
+      <p class="clasePuntos">Punto 3</p>
+    </div>
+    <div id="MainDiv2">
+      <p id="Subtitulo2">Dale a <span class="grabar-azul">grabar</span> y muévase por el mapa para guardar la ruta deseada.</p>
+      <img src="Cosas/moveImage.png" id="moveImage">
+    </div>
+    <div id="MainDiv3">
+      <Button id="BotonGrabar"></Button>
+    </div>
+  </section>
 
+  <section id="Tabla2" style="display:none;">
+    <h1 id="Titulo">MIS RUTAS</h1>
+    <div id="searchContainer">
+      <input type="text" id="searchInput" placeholder="Buscar">
+    </div>
+    <div id="rutaContainer1">
+      <p id="r1">Primera ruta</p>
+      <img src="Cosas/playButton.png" id="playButton1">
+      <img src="Cosas/borrar.png" id="borrarButton1">
+    </div>
+    <div id="rutaContainer2">
+      <p id="r2">Segunda ruta</p>
+      <img src="Cosas/playButton.png" id="playButton2">
+      <img src="Cosas/borrar.png" id="borrarButton2">
+    </div>
+  </section>
 </body>
 </html>
