@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('/Cosas/Fondo3.png');
+  background-size: cover;
+  background-repeat: repeat;
+}
+
+.left-half {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  background-color: rgba(26, 65, 165, 1); /* Cambia el color de fondo a azul */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  position: relative;
+  margin: 20vh auto;
+  width: 80%;
+  text-align: center;
+  color: white; /* Color del texto */
+}
+
+.login-title {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 3rem;
+  margin-bottom: 20px; /* Añade un margen inferior para separarlo del siguiente elemento */
+  color: white; /* Color del texto */
+  position: absolute;
+  top: -200px; /* Ajusta la posición hacia arriba */
+  left: 50%; /* Centra horizontalmente */
+  transform: translateX(-50%); /* Centra horizontalmente */
+}
+
+
+.input-field {
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.label-usuario, .label-contraseña {
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  display: block;
+  text-align: left;
+}
+
+.sidebar {
+  position: fixed;
+  left: 20px;
+  top: 40px;
+  bottom: 40px;
+  background-color: #000000;
+  border-radius: 50px;
+  padding: 20px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.imagen_logo {
+  border-radius: 5px;
+  object-fit: contain;
+  position: relative;
+  width: 40px;
+  height: 50px;
+  right: 10px;
+}
+
+.imagen_perfilVacio {
+  border-radius: 5px;
+  object-fit: contain;
+  position: relative;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  right: 10px;
+}
+
+.button_comenzar {
+  width: 300px;
+  border-radius: 50px;
+  font-size: 20px;
+  height: 84px;
+  background-color: white;
+  color: #1A41A5;
+  border: 2px solid #1A41A5;
+  cursor: pointer;
+}
+
+.title-container {
+  text-align: right;
+  margin-top: 20px;
+  position: relative;
+  top: 20px;
+  margin-right: 70px;
+}
+
+h1 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: bold;
+  font-size: 6rem;
+  margin-right: 100px;
+  margin-top: 10px;
+}
+
+.tortugui-image {
+  width: 400px;
+  height: auto;
+  position: fixed;
+  right: 130px;
+  bottom: 20px;
+}

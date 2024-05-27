@@ -1,3 +1,4 @@
+//main.js
 document.addEventListener('DOMContentLoaded', event => {
     console.log("entro en la pagina")
     
