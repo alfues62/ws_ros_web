@@ -1,6 +1,7 @@
 import react from "react"
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
 import Login from "./pages/Login"
+import Navigation from "./pages/Navigation"
 import Landing from "./pages/Landing";
 import Register from "./pages/Register"
 import Home from "./pages/Home"
@@ -23,15 +24,16 @@ function App() {
       <Routes>
       <Route path="/" element={<Landing />} />
         <Route
-          path="/home"
+          path="/navigation"
           element={
             <ProtectedRoute>
-              <Home />
+              <Navigation />
             </ProtectedRoute>
           }
         />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/register" element={<RegisterAndLogout />} />
         <Route path="*" element={<NotFound />}></Route>
       </Routes>

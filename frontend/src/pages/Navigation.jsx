@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Navigation.css";
+import "../styles/Navegacion.css";
 import "../styles/tabla.css";
 import "../styles/tablaNav.css";
 
