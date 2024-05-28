@@ -24,18 +24,16 @@ function App() {
       <Routes>
       <Route path="/" element={<Landing />} />
         <Route
-          path="/navigation"
+          path="/home"
           element={
             <ProtectedRoute>
-              <Navigation />
+              <Home />
             </ProtectedRoute>
           }
         />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/register" element={<RegisterAndLogout />} />
-        <Route path="*" element={<NotFound />}></Route>
       </Routes>
     </BrowserRouter>
   )

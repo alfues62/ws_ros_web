@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Navegacion.module.css";
-import "../styles/tabla.module.css";
-import "../styles/tablaNav.module.css";
+import styles from "../styles/Navegacion.module.css"; // Importar estilos del módulo
+import tablaStyles from "../styles/tabla.module.css"; // Importar estilos del módulo de la tabla
+import tablaNavStyles from "../styles/tablaNav.module.css"; // Importar estilos del módulo de la tabla de navegación
 
 function Navigation() {
     
@@ -106,68 +106,68 @@ function Navigation() {
 
     return (
         <div>
-            <div className="top-bar"></div>
-            <div className="background-container">
-                <img src="Cosas/Fondo_Navegacion.png" alt="Fondo de navegación" className="background-img"/>
+            <div className={styles["top-bar"]}></div>
+            <div className={styles["background-container"]}>
+                <img src="/Cosas/Fondo_Navegacion.png" alt="Fondo de navegación" className={styles["background-img"]}/>
             </div>
-            <aside className="sidebar">
-                <img src="Cosas/Logo.png" alt="Logo" className="imagen_logo"/>
-                <img src="Cosas/estadistica.png" alt="Logo" className="estadistica_imagen"/>
-                <img src="Cosas/flechita.png" alt="Logo" className="flechita_imagen"/>
-                <img src="Cosas/perfilVacio.png" alt="Perfil Vacío" className="imagen_perfil_vacio"/>
+            <aside className={styles["sidebar"]}>
+                <img src="/Cosas/Logo.png" alt="Logo" className={styles["imagen_logo"]}/>
+                <img src="/Cosas/estadistica.png" alt="Logo" className={styles["estadistica_imagen"]}/>
+                <img src="/Cosas/flechita.png" alt="Logo" className={styles["flechita_imagen"]}/>
+                <img src="/Cosas/perfilVacio.png" alt="Perfil Vacío" className={styles["imagen_perfil_vacio"]}/>
             </aside>
-            <div className="content">
-                <div id="button_com" className="button_com">
+            <div className={styles["content"]}>
+                <div className={styles["button_com"]} id="button_com" >
                     <a href="javascript:void(0);">NAVEGACION</a>
                 </div>
-                <div id="button_grabar" className="button_grabar">
+                <div className={styles["button_grabar"]} id="button_grabar" >
                     <a href="javascript:void(0);">GRABAR</a>
                 </div>
             </div>
-            <div className="bottom-bar"></div> 
+            <div className={styles["bottom-bar"]}></div> 
             
-            <section id="Tabla">
-                <div id="TituloContainer"> 
-                    <h1 id="Titulo">GRABAR RUTA</h1>
+            <section className={tablaStyles["Tabla"]} id="Tabla" >
+                <div className={tablaStyles["TituloContainer"]} id="TituloContainer"> 
+                    <h1 className={tablaStyles["Titulo"]} id="Titulo">GRABAR RUTA</h1>
                 </div>
-                <div id="ButtonContainer">
-                    <button id="ManualBtn">Manual</button>
-                    <button id="SeleccionarBtn">Seleccionar puntos</button>
+                <div className={tablaStyles["ButtonContainer"]} >
+                    <button className={tablaStyles["ManualBtn"]} id="ManualBtn" >Manual</button>
+                    <button className={tablaStyles["SeleccionarBtn"]} id="SeleccionarBtn">Seleccionar puntos</button>
                 </div>
-                <div id="MainDiv" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around', alignItems: 'center', height: '330px' }}>
-                    <p id="Subtitulo">Seleccione los puntos en el campo por los que se quiere mover y dale a <span className="grabar-azul">grabar</span></p>
-                    <p className="clasePuntos">Punto 1</p>
-                    <p className="clasePuntos">Punto 2</p>
-                    <p className="clasePuntos">Punto 3</p>
+                <div className={tablaStyles["MainDiv"]} id="MainDiv">
+                    <p className={tablaStyles["Subtitulo"]} id="Subtitulo">Seleccione los puntos en el campo por los que se quiere mover y dale a <span className={styles["grabar-azul"]}>grabar</span></p>
+                    <p className={tablaStyles["clasePuntos"]}>Punto 1</p>
+                    <p className={tablaStyles["clasePuntos"]}>Punto 2</p>
+                    <p className={tablaStyles["clasePuntos"]}>Punto 3</p>
                 </div>
-                <div id="MainDiv2">
-                    <p id="Subtitulo2">Dale a <span className="grabar-azul">grabar</span> y muévase por el mapa para guardar la ruta deseada.</p>
-                    <img src="Cosas/moveImage.png" id="moveImage"/>
+                <div className={tablaStyles["MainDiv2"]} id="MainDiv2">
+                    <p  className={tablaStyles["Subtitulo2"]} id="Subtitulo2">Dale a <span className={tablaStyles["grabar-azul"]}>grabar</span> y muévase por el mapa para guardar la ruta deseada.</p>
+                    <img src="/Cosas/moveImage.png" className={tablaStyles["moveImage"]} id="moveImage" alt="Mover imagen" />
                 </div>
-                <div id="MainDiv3">
-                    <button id="BotonGrabar"></button>
+                <hr />
+                <button className={tablaStyles["BotonGrabar"]} id="BotonGrabar"></button>
+            </section>
+
+            <section id="Tabla2" className={tablaNavStyles["Tabla2"]}>
+                <div id={tablaNavStyles["TituloContainer"]}>
+                    <h1 id={tablaNavStyles["Titulo"]}>NUEVA RUTA</h1>
+                    <div id={tablaNavStyles["searchContainer"]}>
+                        <input type="text" id="searchInput" className={tablaNavStyles["searchInput"]} placeholder="Buscar ruta..." />
+                    </div>
                 </div>
-                </section>
-                <section id="Tabla2" style={{ display: 'none' }}>
-            <h1 id="Titulo">MIS RUTAS</h1>
-            <div id="searchContainer">
-                <input type="text" id="searchInput" placeholder="Buscar"/>
-            </div>
-            <div id="rutaContainer1">
-                <p id="r1">Primera ruta</p>
-                <img src="Cosas/playButton.png" id="playButton1"/>
-                <img src="Cosas/borrar.png" id="borrarButton1"/>
-            </div>
-            <div id="rutaContainer2">
-                <p id="r2">Segunda ruta</p>
-                <img src="Cosas/playButton.png" id="playButton2"/>
-                <img src="Cosas/borrar.png" id="borrarButton2"/>
-            </div>
+                <div id="rutaContainer1" className={tablaNavStyles["rutaContainer1"]}>
+                    <p id="r1" className={tablaNavStyles["r1"]}>Ruta 1</p>
+                    <button id="playButton1" className={tablaNavStyles["playButton1"]}></button>
+                    <button  id="borrarButton1" className={tablaNavStyles["borrarButton1"]}></button>
+                </div>
+                <div id="rutaContainer2" className={tablaNavStyles["rutaContainer2"]}>
+                    <p id="r2" className={tablaNavStyles["r2"]}>Ruta 2</p>
+                    <button id="playButton2" className={tablaNavStyles["playButton2"]}></button>
+                    <button id="borrarButton2" className={tablaNavStyles["borrarButton2"]}></button>
+                </div>
             </section>
         </div>
     );
 }
 
 export default Navigation;
-
-

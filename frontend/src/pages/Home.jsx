@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 function Home() {
+
+    const redirigir = () => {
+        window.location.href = '/NavigationLOLA/Navegacion.html';
+    }
+    
     const [data, setData] = useState({
         // ros connection
         ros: null,
@@ -213,6 +218,7 @@ function Home() {
                                     <button className="mt-2 btn btn-primary" id="btn_stop">Parar</button>
                                     <button className="mt-2 btn btn-primary" id="btn_change_direction">Cambiar Direccion</button>
                                     <button className="mt-2 btn btn-primary" id="btn_to_point">Ir al Punto</button>
+                                    <button onClick={redirigir}>Ir a la página HTML</button>
                                     <div className="mb-3">
                                         <label htmlFor="x_value" className="form-label">X Value:</label>
                                         <input type="number" className="form-control" id="x_value" />
