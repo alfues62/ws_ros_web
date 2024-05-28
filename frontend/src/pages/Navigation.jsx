@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "../styles/Navegacion.css";
-import "../styles/tabla.css";
-import "../styles/tablaNav.css";
+import "../styles/Navegacion.module.css";
+import "../styles/tabla.module.css";
+import "../styles/tablaNav.module.css";
 
 function Navigation() {
+    
     useEffect(() => {
         var btn1 = document.getElementById('ManualBtn');
         var btn2 = document.getElementById('SeleccionarBtn');
