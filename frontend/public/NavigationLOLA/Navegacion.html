@@ -11,6 +11,9 @@
   <script src="tabla.js"></script>
   <script src="tablaNav.js"></script>
   <script src="cambioTablas.js"></script>
+  <script src="roslib.min.js"></script>
+  <script src="js/roslibjs-develop/"></script>
+  <script src="main.js"></script>
 </head>
 <body>
   <div class="top-bar"></div> <!-- Barra blanca superior -->
@@ -44,9 +47,10 @@
     </div>
     <div id="MainDiv" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 330px;">
       <p id="Subtitulo">Seleccione los puntos en el campo por los que se quiere mover y dale a <span class="grabar-azul">grabar</span></p>
-      <p class="clasePuntos">Punto 1</p>
-      <p class="clasePuntos">Punto 2</p>
-      <p class="clasePuntos">Punto 3</p>
+      <p class="clasePuntos" id="btn_con">Conectar ROS2</p>
+      <p class="clasePuntos" id="punto1">Punto 1</p>
+      <p class="clasePuntos" id="punto2">Punto 2</p>
+      <p class="clasePuntos" id="punto3">Punto 3</p>
     </div>
     <div id="MainDiv2">
       <p id="Subtitulo2">Dale a <span class="grabar-azul">grabar</span> y muévase por el mapa para guardar la ruta deseada.</p>
