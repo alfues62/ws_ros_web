@@ -16,6 +16,8 @@ document.addEventListener('DOMContentLoaded', event => {
         call_point_service(3, 3);
     })
 
+    document.getElementById("playButton1").addEventListener("click", call_delante_service("derecha"))
+
     data = {
         // ros connection
         ros: null,
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', event => {
             console.error(error)
         })
     }
+
     
 
     function disconnect(){
@@ -147,5 +150,29 @@ document.addEventListener('DOMContentLoaded', event => {
             data.direction = 'forward';
             console.log('Direction changed to forward');
         }
+    }
+    //---------------------------------------
+    function call_delante_service(valor){
+        data.service_busy = true
+        data.service_response = ''	
+    
+      //definimos los datos del servicio
+      let service = new ROSLIB.Service({//---------------------------
+        ros : ros,
+        name : '/web_movement_server',
+        serviceType : 'FollowWaypoints',
+    })
+        let request = new ROSLIB.ServiceRequest({
+            move: valor
+        })
+    
+        service.callService(request, (result) => {
+            data.service_busy = false
+            data.service_response = JSON.stringify(result)
+            console.log("correcto")
+        }, (error) => {
+            data.service_busy = false
+            console.error(error)
+        })	
     }
 });
