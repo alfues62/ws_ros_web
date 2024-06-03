@@ -22,7 +22,7 @@ function Form({ route, method }) {
             if (method === "login") {
                 localStorage.setItem(ACCESS_TOKEN, res.data.access);
                 localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-                navigate("/home");
+                window.location.href = "/NavigationLOLA/Navegacion.html";
             } else {
                 navigate("/login");
             }

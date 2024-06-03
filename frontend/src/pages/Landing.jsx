@@ -4,6 +4,7 @@ import "../styles/Landing.css";
 
 // Define el componente de la página de Landing
 function Landing() {
+
   return (
     <div>
         <aside class="sidebar">
@@ -20,6 +21,7 @@ function Landing() {
             <div className="button_ini">
                 <Link to="/login">COMENZAR</Link>
             </div>
+            
         </div>
 
         <img src="/Cosas/tortugui.png" alt="Tortugui" class="tortugui-image"/>

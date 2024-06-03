@@ -1,0 +1,421 @@
+.sidebar {
+    position: fixed;
+    left: 20px;
+    margin-top: 30px; /* Incrementa este valor para aumentar la separación desde la parte superior */
+    bottom: 40px;
+    background-color: #000000;
+    border-radius: 50px;
+    padding: 20px;
+    height: 85%;
+    width: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Para separar los elementos */
+}
+
+.imagen_logo {
+    border-radius: 5px;
+    object-fit: contain;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    right: 10px; /* Ajusta la posición hacia la derecha */
+}
+
+.estadistica_imagen {
+    border-radius: 5px;
+    object-fit: contain;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    right: 10px; /* Ajusta la posición hacia la derecha */
+    top: 10px;
+}
+
+.flechita_imagen {
+    border-radius: 5px;
+    object-fit: contain;
+    position: relative;
+    width: 40px;
+    height: 50px;
+    right: 10px; /* Ajusta la posición hacia la derecha */
+    top: 10px;
+}
+
+.imagen_pefilVacio {
+    border-radius: 5px;
+    object-fit: contain;
+    position: relative;
+    bottom: 0; /* Abajo */
+    width: 40px;
+    height: 40px;
+    right: 10px; /* Ajusta la posición hacia la derecha */
+}
+
+  
+.button_comenzar {
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 50px;
+    font-size: 20px;
+    width: 60px;
+    height: 84px;
+    display: block; 
+    margin: 0 auto; /* El botón se centra horizontalmente */
+    position: fixed; /* El botón se posiciona en relación a su contenedor */
+    bottom: 20px; /* El botón se mueve 20 píxeles hacia abajo */
+    position: fixed; /* Posicionamiento fijo */
+    bottom: 40px; /* Distancia desde el borde inferior */
+    left: 50%; /* Alinea el botón en el centro horizontal */
+    transform: translateX(-50%);
+}
+
+/* Estilos para el enlace botón */
+.button_comenzar a {
+    display: inline-block;
+    transform: translateX(-50%);
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.7); /* Color de fondo blanco con opacidad del 70% */
+    color: #1A41A5; /* Color del texto */
+    padding: 20px 70px; /* Espacio interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    font-family: 'DM Sans', sans-serif;
+    border: 2px solid #1A41A5;    
+    border-radius: 50px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar */
+    width: 200px;
+  }
+
+  /* Estilos para el enlace botón al pasar el cursor */
+  .button_comenzar a:hover {
+    background-color: #1A41A5; /* Cambia el color de fondo al pasar el cursor */
+  }
+
+  .button_grabar a {
+    display: inline-block;
+    transform: translateX(-50%);
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.7); /* Color de fondo blanco con opacidad del 70% */
+    color: #1A41A5; /* Color del texto */
+    padding: 20px 70px; /* Espacio interno */
+    text-align: center; /* Alineación del texto */
+    text-decoration: none; /* Quita el subrayado del enlace */
+    font-family: 'DM Sans', sans-serif;
+    border: 2px solid #1A41A5;    
+    border-radius: 50px; /* Borde redondeado */
+    cursor: pointer; /* Cursor al pasar */
+    width: 200px;
+}
+
+/* Estilos para el enlace botón al pasar el cursor */
+.button_grabar a:hover {
+    background-color: #1A41A5; /* Cambia el color de fondo al pasar el cursor */
+}
+
+
+
+body {
+    background-image: url('/Cosas/Fondo_Navegacion.png');
+    background-size: 100px; /* Establece un tamaño específico para la imagen */
+    background-position: center; /* Centra la imagen en el cuerpo */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    height: 70vh; /* Ajusta la altura al 100% del viewport */
+    display: flex; /* Utiliza Flexbox para centrar verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    margin: 20px auto 0; /* Margen superior de 20px y centrado horizontal */
+}
+
+.background-container {
+    width: 60%; /* Ancho deseado del contenedor de fondo */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    background-image: url('/Cosas/Fondo_Navegacion.png'); /* Ruta de la imagen */
+    background-size: contain; /* Ajusta la imagen para que quepa dentro del contenedor */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-position: center; /* Centra la imagen en el contenedor */
+    height: 100vh; /* Establece la altura al 100% del viewport */
+    margin-top: 20px; /* Agrega un margen superior de 20px */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    /* Ajusta el contenido en una columna */
+    min-height: 100vh;
+    /* Asegura que el cuerpo tenga al menos el alto del viewport */
+    position: relative;
+    /* Establece posición relativa para poder posicionar las barras de forma absoluta */
+  }
+
+  .top-bar,
+  .bottom-bar {
+    background-color: white;
+    /* Color de la barra */
+    width: 100%;
+    /* Ancho total */
+    position: fixed;
+    /* Posicionamiento fijo para que no se desplace con el contenido */
+    left: 0;
+    /* Ajusta la posición a la izquierda */
+    z-index: 1;
+    /* Asegura que las barras estén por encima del contenido */
+  }
+
+  .top-bar {
+    top: 0;
+    /* Coloca la barra superior en la parte superior de la ventana */
+    height: 40px;
+    /* Altura de la barra superior */
+  }
+
+  .bottom-bar {
+    bottom: 0;
+    /* Coloca la barra inferior en la parte inferior de la ventana */
+    height: 90px;
+    /* Altura de la barra inferior, mayor que la barra superior */
+  }
+
+  .background-container {
+    width: 60%;
+    /* Ancho deseado de la imagen */
+    margin: 20px auto;
+    /* Espacio alrededor de la imagen */
+    position: relative;
+    /* Establece posición relativa */
+    z-index: 0;
+    /* Asegura que la imagen de fondo esté detrás de las barras */
+  }
+
+  img.background-img {
+    width: 100%;
+    /* Ancho de la imagen al 100% */
+    display: block;
+    /* Asegura que la imagen sea un bloque */
+  }
+
+  .sidebar {
+    position: absolute;
+    /* Ajuste de la posición de la barra lateral */
+    z-index: 2;
+    /* Asegura que la barra lateral esté por encima de las barras */
+    top: 0;
+    /* Coloca la barra lateral en la parte superior de la ventana */
+  }
+
+  .content {
+    position: relative;
+    /* Ajuste de la posición del contenido */
+    z-index: 2;
+    /* Asegura que el contenido esté por encima de las barras */
+  }
+
+  .button_comenzar {
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 50px;
+    font-size: 20px;
+    width: 60px;
+    height: 84px;
+    display: block;
+    margin: 0 auto;
+    /* El botón se centra horizontalmente */
+    position: fixed;
+    /* El botón se posiciona en relación a su contenedor */
+    bottom: 1px;
+    /* El botón se mueve 60 píxeles hacia abajo */
+    left: 37%;
+    /* Alinea el botón en el centro horizontal */
+    transform: translateX(-50%);
+  }
+
+  .button_grabar {
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 50px;
+    font-size: 20px;
+    width: 60px;
+    height: 84px;
+    display: block;
+    margin: 0 auto;
+    /* El botón se centra horizontalmente */
+    position: fixed;
+    /* El botón se posiciona en relación a su contenedor */
+    bottom: 1px;
+    /* El botón se mueve 60 píxeles hacia abajo */
+    left: 60.2%;
+    /* Alinea el botón en el centro horizontal */
+    transform: translateX(-50%);
+  }
+
+
+
+  /* Estilos para la sección de texto "GRABAR RUTA" */
+  .grabar-text {
+    position: absolute;
+    top: 25px;
+    /* Ajusta la separación superior */
+    right: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+    /* Asegura que esté por encima del cuadrado blanco */
+    font-family: "DM Sans", sans-serif;
+    /* Cambia la tipografía */
+    margin-bottom: 15px;
+    /* Ajusta la separación inferior */
+  }
+
+  .grabar-text hr {
+    bottom: 10px;
+    /* Ajusta la separación inferior */
+    top: 50px;
+    /* Ajusta la separación superior */
+    border: 1px solid black;
+    width: 100%;
+    /* Ajusta la anchura */
+    margin: 0 auto;
+  }
+
+  .grabar-text span {
+    background-color: white;
+    padding: 0 15px;
+    /* Ajusta el padding */
+    font-weight: bold;
+  }
+
+  /* Estilo para la barra vertical */
+  .vertical-bar {
+    position: absolute;
+    top: 45px;
+    /* Ajusta la posición vertical */
+    right: 130px;
+    width: 1px;
+    /* Anchura de la barra */
+    height: calc(30% - 120px);
+    /* Ajusta la altura de la barra */
+    background-color: black;
+    /* Color de la barra */
+  }
+
+  .horizontal-bar {
+    position: absolute;
+    top: 111px;
+    /* Ajusta la posición vertical */
+    left: 0;
+    width: 100%;
+    /* Ajusta la anchura */
+    height: 1px;
+    /* Ajusta la altura */
+    background-color: black;
+    /* Color de la barra */
+  }
+
+  .horizontal-bar2 {
+    position: absolute;
+    top: 570px;
+    /* Ajusta la posición vertical */
+    left: 0;
+    width: 100%;
+    /* Ajusta la anchura */
+    height: 1px;
+    /* Ajusta la altura */
+    background-color: black;
+    /* Color de la barra */
+  }
+
+  /* Estilos para la imagen dentro del cuadrado blanco */
+  .boton-detener-img {
+    position: absolute;
+    top: 95.5%;
+    /* Centra verticalmente */
+    left: 50%;
+    /* Centra horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Centra la imagen */
+    width: 80%;
+    /* Ancho de la imagen */
+    height: auto;
+    /* Altura automática para mantener la proporción */
+    max-width: 40px;
+    /* Ancho máximo */
+    max-height: 40px;
+    /* Altura máxima */
+  }
+
+  /* Estilos para los cuadrados blancos en la parte izquierda */
+  .left-square {
+    position: absolute;
+    top: 19px;
+    left: 0;
+    bottom: 63px;
+    width: calc(20% - 40px);
+    /* Ajusta el ancho según el espacio disponible */
+    background-color: white;
+    border: 2px solid black;
+    /* Añadimos borde negro */
+    border-radius: 20px;
+    z-index: 2;
+    /* Asegura que esté en la capa superior */
+    margin: 20px;
+  }
+
+  /* Estilos para el texto dentro de los cuadrados */
+  .square-text {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 10px;
+  }
+
+  .left-square .square-text {
+    left: -100%;
+    /* Ajusta el texto a la izquierda */
+  }
+
+  .right-square .square-text {
+    right: -100%;
+    /* Ajusta el texto a la derecha */
+  }
+
+  /* Estilos para el texto a la izquierda de la barra vertical */
+  .left-text {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    /* Ajusta el espacio a la izquierda */
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .caja-izquierda-text {
+    position: absolute;
+    top: 12.5%;
+    left: 10px;
+    /* Ajusta el espacio a la izquierda */
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .caja-derecha-text {
+    position: absolute;
+    top: 12.5%;
+    left: 135px;
+    /* Ajusta el espacio a la izquierda */
+    transform: translateY(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "DM Sans", sans-serif;
+  }
+
+  .square-text.left-text span {
+    color: rgba(26, 65, 165, 1);
+  }

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi landing page</title>
+  <link rel="stylesheet" href="Navegacion.css">
+  <link rel="stylesheet" href="tabla.css">
+  <link rel="stylesheet" href="tablaNav.css">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="tabla.js"></script>
+  <script src="tablaNav.js"></script>
+  <script src="cambioTablas.js"></script>
+  <script src="roslib.min.js"></script>
+  <script src="js/roslibjs-develop/"></script>
+  <script src="main.js"></script>
+</head>
+<body>
+  <div class="top-bar"></div> <!-- Barra blanca superior -->
+  <div class="background-container">
+    <img src="Cosas/Fondo_Navegacion.png" alt="Fondo de navegación" class="background-img">
+  </div>
+  <!-- Tu contenido aquí -->
+  <aside class="sidebar">
+    <img src="Cosas/Logo.png" alt="Logo" class="imagen_logo">
+    <img src="Cosas/estadistica.png" alt="Logo" class="estadistica_imagen">
+    <img src="Cosas/flechita.png" alt="Logo" class="flechita_imagen">
+    <img src="Cosas/perfilVacio.png" alt="Perfil Vacío" class="imagen_perfil_vacio">
+  </aside>
+  <div class="content">
+    <div id="button_comenzar" class="button_comenzar">
+      <a href="javascript:void(0);">NAVEGACION</a>
+    </div>
+    <div id="button_grabar" class="button_grabar">
+      <a href="javascript:void(0);">GRABAR</a>
+    </div>
+  </div>
+  <div class="bottom-bar"></div> <!-- Barra blanca inferior -->
+  
+  <section id="Tabla">
+    <div id="TituloContainer"> <!-- Nuevo contenedor para el título -->
+      <h1 id="Titulo">GRABAR RUTA</h1>
+    </div>
+    <div id="ButtonContainer">
+      <Button id="ManualBtn">Manual</Button>
+      <Button id="SeleccionarBtn">Seleccionar puntos</Button>
+    </div>
+    <div id="MainDiv" style="display: flex; flex-direction: column; justify-content: space-around; align-items: center; height: 330px;">
+      <p id="Subtitulo">Seleccione los puntos en el campo por los que se quiere mover y dale a <span class="grabar-azul">grabar</span></p>
+      <p class="clasePuntos" id="btn_con">Conectar ROS2</p>
+      <p class="clasePuntos" id="punto1">Punto 1</p>
+      <p class="clasePuntos" id="punto2">Punto 2</p>
+      <p class="clasePuntos" id="punto3">Punto 3</p>
+    </div>
+    <div id="MainDiv2">
+      <p id="Subtitulo2">Dale a <span class="grabar-azul">grabar</span> y muévase por el mapa para guardar la ruta deseada.</p>
+      <img src="Cosas/moveImage.png" id="moveImage">
+    </div>
+    <div id="MainDiv3">
+      <Button id="BotonGrabar"></Button>
+    </div>
+  </section>
+
+  <section id="Tabla2" style="display:none;">
+    <h1 id="Titulo">MIS RUTAS</h1>
+    <div id="searchContainer">
+      <input type="text" id="searchInput" placeholder="Buscar">
+    </div>
+    <div id="rutaContainer1">
+      <p id="r1">Primera ruta</p>
+      <img src="Cosas/playButton.png" id="playButton1">
+      <img src="Cosas/borrar.png" id="borrarButton1">
+    </div>
+    <div id="rutaContainer2">
+      <p id="r2">Segunda ruta</p>
+      <img src="Cosas/playButton.png" id="playButton2">
+      <img src="Cosas/borrar.png" id="borrarButton2">
+    </div>
+  </section>
+</body>
+</html>
