@@ -99,7 +99,8 @@ document.addEventListener('DOMContentLoaded', event => {
         data.ros.close()        
         data.connected = false
         console.log('Clic en botón de desconexión')
-    }   
+    }
+
     
     function move() {
         let topic = new ROSLIB.Topic({
@@ -121,7 +122,109 @@ document.addEventListener('DOMContentLoaded', event => {
             angular: {x: 0, y: 0, z: angularVelocity },
         })
         topic.publish(message)
-    }    
+    }
+
+    // Selecciona el elemento del documento donde quieres detectar la pulsación de teclas
+document.addEventListener('keydown', function(event) {
+    // El código dentro de esta función se ejecutará cada vez que se presione una tecla
+
+    // Puedes verificar qué tecla se ha presionado utilizando event.key
+    // Por ejemplo, si quieres detectar cuando se presiona la tecla 'Enter':
+    if (event.key === 'W') {
+        // Aquí ejecutas la acción que deseas realizar
+        console.log('Se presionó la tecla W');
+        let topic = new ROSLIB.Topic({
+            ros: data.ros,
+            name: '/cmd_vel',
+            messageType: 'geometry_msgs/msg/Twist'
+        })
+
+        let linearVelocity = 0.1; // Default linear velocity
+        let angularVelocity = 0; // Default angular velocity
+
+        let message = new ROSLIB.Message({
+            linear: {x: linearVelocity, y: 0, z: 0 },
+            angular: {x: 0, y: 0, z: angularVelocity },
+        })
+        topic.publish(message)
+        }
+
+    // Otro ejemplo: detectar la tecla 'Esc' (Escape)
+    if (event.key === 'A') {
+        console.log('Se presionó la tecla A');
+        let topic = new ROSLIB.Topic({
+            ros: data.ros,
+            name: '/cmd_vel',
+            messageType: 'geometry_msgs/msg/Twist'
+        })
+
+        let linearVelocity = 0; // Default linear velocity
+        let angularVelocity = -0.1; // Default angular velocity
+
+        let message = new ROSLIB.Message({
+            linear: {x: linearVelocity, y: 0, z: 0 },
+            angular: {x: 0, y: 0, z: angularVelocity },
+        })
+        topic.publish(message)
+    }
+
+    // También puedes verificar el código de la tecla presionada utilizando event.keyCode (aunque key es preferido)
+    // Por ejemplo, detectar la tecla 'A'
+    if (event.key === 'S') {
+        console.log('Se presionó la tecla S');
+        let topic = new ROSLIB.Topic({
+            ros: data.ros,
+            name: '/cmd_vel',
+            messageType: 'geometry_msgs/msg/Twist'
+        })
+
+        // Sending zero velocities to stop the robot
+        let message = new ROSLIB.Message({
+            linear: {x: 0, y: 0, z: 0 },
+            angular: {x: 0, y: 0, z: 0 },
+        })
+        topic.publish(message)
+        
+    }
+
+    if (event.key === 'D') {
+        console.log('Se presionó la tecla D');
+        let topic = new ROSLIB.Topic({
+            ros: data.ros,
+            name: '/cmd_vel',
+            messageType: 'geometry_msgs/msg/Twist'
+        })
+
+        let linearVelocity = 0; // Default linear velocity
+        let angularVelocity = 0.1; // Default angular velocity
+
+        let message = new ROSLIB.Message({
+            linear: {x: linearVelocity, y: 0, z: 0 },
+            angular: {x: 0, y: 0, z: angularVelocity },
+        })
+        topic.publish(message)
+    }
+
+    if (event.key === 'X') {
+        console.log('Se presionó la tecla X');
+        let topic = new ROSLIB.Topic({
+            ros: data.ros,
+            name: '/cmd_vel',
+            messageType: 'geometry_msgs/msg/Twist'
+        })
+
+        let linearVelocity = -0.1; // Default linear velocity
+        let angularVelocity = 0; // Default angular velocity
+
+        let message = new ROSLIB.Message({
+            linear: {x: linearVelocity, y: 0, z: 0 },
+            angular: {x: 0, y: 0, z: angularVelocity },
+        })
+        topic.publish(message)
+    }
+
+    
+});
 
     function stop() {
         let topic = new ROSLIB.Topic({
