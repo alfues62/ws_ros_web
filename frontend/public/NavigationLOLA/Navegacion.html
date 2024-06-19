@@ -8,12 +8,61 @@
   <link rel="stylesheet" href="tabla.css">
   <link rel="stylesheet" href="tablaNav.css">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.968.0.min.js"></script>
   <script src="tabla.js"></script>
   <script src="tablaNav.js"></script>
   <script src="cambioTablas.js"></script>
   <script src="roslib.min.js"></script>
   <script src="js/roslibjs-develop/"></script>
   <script src="main.js"></script>
+  <script src="rekognition.js"></script>
+  <script>
+    // Configurar las credenciales de AWS SDK
+    AWS.config.update({
+        accessKeyId: '',
+        secretAccessKey: '',
+        sessionToken: '',
+        region: 'us-east-1'  // Ajusta la región según sea necesario
+    });
+
+    // Suscribirse al tema de SNS para recibir actualizaciones de orange count
+    const sns = new AWS.SNS();
+    const topicArn = 'arn:aws:sns:us-east-1:123456789012:orange-count-topic';
+
+    sns.subscribe({
+        Protocol: 'https',
+        Endpoint: 'https://tu-aplicacion-web.com/actualizar-orange-count',
+        TopicArn: topicArn,
+    }, (err, data) => {
+        if (err) {
+            console.error('Error subscribing to SNS:', err);
+        } else {
+            console.log('Subscribed to SNS topic for orange count updates');
+        }
+    });
+
+    // Manejar mensajes del tema SNS para actualizar orange count
+    function handleMessage(message) {
+        const { orangeCount } = JSON.parse(message.Message);
+        document.getElementById('orange-count').textContent = orangeCount;
+    }
+
+    // Función para recibir mensajes del tema SNS usando EventSource (SSE)
+    const eventSource = new EventSource(`https://sns.${AWS.config.region}.amazonaws.com/`, {
+        headers: {
+            'x-amz-sns-topic-arn': topicArn,
+            'x-amz-sns-message-type': 'SubscriptionConfirmation'
+        }
+    });
+
+    eventSource.onmessage = (event) => {
+        handleMessage(JSON.parse(event.data));
+    };
+
+    eventSource.onerror = (error) => {
+        console.error('Error receiving SNS message:', error);
+    };
+</script>
 </head>
 <body>
   <div class="top-bar"></div> <!-- Barra blanca superior -->
@@ -51,6 +100,7 @@
       <p class="clasePuntos" id="punto1">Punto 1</p>
       <p class="clasePuntos" id="punto2">Punto 2</p>
       <p class="clasePuntos" id="punto3">Punto 3</p>
+      <p class="clasePuntos">Número de naranjas detectadas: <span id="orange-count">Cargando...</span></p>
     </div>
     <div id="MainDiv2">
       <p id="Subtitulo2">Dale a <span class="grabar-azul">grabar</span> y muévase por el mapa para guardar la ruta deseada.</p>
